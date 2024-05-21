@@ -1,11 +1,12 @@
 using apirest.context;
 using Microsoft.EntityFrameworkCore;
 
+//ayuda a los cors
 var MyAllowSpecificationOrigins = "Permisos";
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Agregada
+//Agregada ayuda a los cors
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificationOrigins,
@@ -46,7 +47,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-//Agregada
+//Agregada ayuda a los cors
 app.UseCors(MyAllowSpecificationOrigins);
 
 app.UseAuthorization();
